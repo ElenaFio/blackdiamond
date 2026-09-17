@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="crownDarkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#DE4E85" stop-opacity="0.85" />
+      <stop offset="40%" stop-color="#E882A8" stop-opacity="0.55" />
+      <stop offset="80%" stop-color="#F5C6D8" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Crown Background Fill -->
+  <polygon 
+    points="85,128 175,20 465,20 555,128" 
+    fill="url(#crownDarkGrad)" 
+  />
+
+  <!-- Crown Facet Outlines & Inner Ribs in Vivid Pink -->
+  <!-- Outer Crown Boundary -->
+  <polygon 
+    points="85,128 175,20 465,20 555,128" 
+    fill="none" 
+    stroke="#FD3A85" 
+    stroke-width="14" 
+    stroke-linejoin="round" 
+    stroke-linecap="round" 
+  />
+
+  <!-- Crown Girdle Base Line -->
+  <line 
+    x1="85" y1="128" 
+    x2="555" y2="128" 
+    stroke="#FD3A85" 
+    stroke-width="14" 
+    stroke-linecap="round" 
+  />
+
+  <!-- Vertical Crown Struts -->
+  <line 
+    x1="175" y1="20" 
+    x2="175" y2="128" 
+    stroke="#FD3A85" 
+    stroke-width="14" 
+    stroke-linecap="round" 
+  />
+  <line 
+    x1="465" y1="20" 
+    x2="465" y2="128" 
+    stroke="#FD3A85" 
+    stroke-width="14" 
+    stroke-linecap="round" 
+  />
+
+  <!-- Inner Diagonals -->
+  <line 
+    x1="175" y1="20" 
+    x2="320" y2="128" 
+    stroke="#FD3A85" 
+    stroke-width="14" 
+    stroke-linecap="round" 
+  />
+  <line 
+    x1="465" y1="20" 
+    x2="320" y2="128" 
+    stroke="#FD3A85" 
+    stroke-width="14" 
+    stroke-linecap="round" 
+  />
+
+  <!-- Brand Typography (White on Dark) -->
+  <!-- BLACK DIAMOND -->
+  <text 
+    x="320" 
+    y="202" 
+    text-anchor="middle" 
+    fill="#FFFFFF" 
+    font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+    font-size="49" 
+    font-weight="900" 
+    letter-spacing="3.5"
+  >BLACK DIAMOND</text>
+
+  <!-- Left Accent Rule -->
+  <line 
+    x1="36" y1="230" 
+    x2="96" y2="230" 
+    stroke="#FFFFFF" 
+    stroke-width="2.5" 
+    stroke-linecap="round" 
+  />
+
+  <!-- CLEANING SERVICES -->
+  <text 
+    x="320" 
+    y="237" 
+    text-anchor="middle" 
+    fill="#FFFFFF" 
+    font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+    font-size="20.5" 
+    font-weight="600" 
+    letter-spacing="5.5"
+  >CLEANING SERVICES</text>
+
+  <!-- Right Accent Rule -->
+  <line 
+    x1="544" y1="230" 
+    x2="604" y2="230" 
+    stroke="#FFFFFF" 
+    stroke-width="2.5" 
+    stroke-linecap="round" 
+  />
+
+  <!-- Bottom Pavilion (V-Shape Ribs in Vivid Pink) -->
+  <!-- Left Outer Leg -->
+  <line 
+    x1="190" y1="262" 
+    x2="320" y2="365" 
+    stroke="#FD3A85" 
+    stroke-width="14" 
+    stroke-linejoin="round" 
+    stroke-linecap="round" 
+  />
+
+  <!-- Right Outer Leg -->
+  <line 
+    x1="450" y1="262" 
+    x2="320" y2="365" 
+    stroke="#FD3A85" 
+    stroke-width="14" 
+    stroke-linejoin="round" 
+    stroke-linecap="round" 
+  />
+
+  <!-- Left Inner Leg -->
+  <line 
+    x1="250" y1="262" 
+    x2="320" y2="365" 
+    stroke="#FD3A85" 
+    stroke-width="14" 
+    stroke-linejoin="round" 
+    stroke-linecap="round" 
+  />
+
+  <!-- Right Inner Leg -->
+  <line 
+    x1="390" y1="262" 
+    x2="320" y2="365" 
+    stroke="#FD3A85" 
+    stroke-width="14" 
+    stroke-linejoin="round" 
+    stroke-linecap="round" 
+  />
+</svg>

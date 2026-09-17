@@ -1,0 +1,7 @@
+{
+  "name": "Black Diamond Cleaning Services",
+  "description": "Ultra-modern eco-friendly residential and commercial cleaning services in Petaluma, CA with bilingual English/Spanish support, interactive service showcase, and online booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

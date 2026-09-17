@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black Diamond Cleaning Services | Petaluma, CA • 100% Eco-Friendly & 20% OFF</title>
+  <meta name="description" content="Petaluma & Sonoma County's premier eco-friendly residential and commercial cleaning service. 100% non-toxic, pet-safe, insured, with 20% OFF your first clean." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              magenta: '#FD3A85',
+              'magenta-hover': '#E02670',
+              'magenta-light': '#FFF0F5',
+              obsidian: '#08080C',
+              charcoal: '#111116',
+              surface: '#181820',
+              porcelain: '#F7F8FA',
+            }
+          },
+          boxShadow: {
+            'glow-magenta': '0 0 25px -5px rgba(253, 58, 133, 0.35)',
+            'glow-lg': '0 20px 40px -15px rgba(253, 58, 133, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Alpine.js CDN -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    [x-cloak] { display: none !important; }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #08080C;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #FD3A85;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #E02670;
+    }
+
+    /* No scrollbar utility */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Subtle background mesh */
+    .bg-mesh-dark {
+      background-color: #08080C;
+      background-image: 
+        radial-gradient(at 10% 20%, rgba(253, 58, 133, 0.12) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(253, 58, 133, 0.08) 0px, transparent 50%);
+    }
+
+    .bg-mesh-light {
+      background-color: #FFFFFF;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(253, 58, 133, 0.03) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(247, 248, 250, 0.8) 0px, transparent 50%);
+    }
+
+    /* Infinite Marquee Animation */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      animation: marquee 38s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+
+<body 
+  x-data="cleaningApp()" 
+  class="bg-[#FFFFFF] text-[#111116] font-sans antialiased selection:bg-[#FD3A85] selection:text-white"
+>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN HEADER & NAVBAR (Exact Fresh V1 Navbar) -->
+  <!-- ========================================================================= -->
+  <header 
+    id="main-nav" 
+    class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200/80 transition-all duration-300"
+  >
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 min-h-[76px] sm:min-h-[82px] py-3 md:py-3.5 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center shrink-0 group py-1">
+        <img 
+          src="/src/assets/images/regenerated_image_1787355633828.png" 
+          alt="Black Diamond Cleaning Services" 
+          class="h-12 md:h-14 max-h-[56px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+        />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 xl:gap-10">
+        <a href="#about" class="text-sm font-semibold text-neutral-700 hover:text-[#FD3A85] transition-colors" x-text="t('nav_about')">About</a>
+        <a href="#services" class="text-sm font-semibold text-neutral-700 hover:text-[#FD3A85] transition-colors" x-text="t('nav_services')">Services</a>
+        <a href="#testimonials" class="text-sm font-semibold text-neutral-700 hover:text-[#FD3A85] transition-colors" x-text="t('nav_reviews')">Reviews</a>
+        <a href="#faq" class="text-sm font-semibold text-neutral-700 hover:text-[#FD3A85] transition-colors" x-text="t('nav_faq')">FAQ</a>
+      </nav>
+
+      <!-- Nav CTA, Language Switcher & Phone -->
+      <div class="hidden sm:flex items-center gap-6 lg:gap-7">
+        
+        <!-- Language Switcher UI Pill -->
+        <div class="flex items-center bg-neutral-100 p-1 rounded-full text-xs font-semibold border border-black/5">
+          <button 
+            type="button"
+            @click="setLang('en')" 
+            :class="lang === 'en' ? 'bg-[#08080C] text-white shadow-sm font-bold' : 'text-neutral-500 hover:text-black'"
+            class="px-3 py-1 rounded-full transition-all cursor-pointer"
+          >
+            EN
+          </button>
+          <button 
+            type="button"
+            @click="setLang('es')" 
+            :class="lang === 'es' ? 'bg-[#08080C] text-white shadow-sm font-bold' : 'text-neutral-500 hover:text-black'"
+            class="px-3 py-1 rounded-full transition-all cursor-pointer"
+          >
+            ES
+          </button>
+        </div>
+
+        <a href="tel:7073184321" class="flex items-center gap-2 text-sm font-bold text-[#08080C] hover:text-[#FD3A85] transition-colors">
+          <div class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-[#FD3A85]">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+          </div>
+          <span>(707) 318-4321</span>
+        </a>
+
+        <a 
+          href="#contact"
+          id="nav-book-btn"
+          class="inline-flex items-center gap-2 bg-[#08080C] hover:bg-[#FD3A85] text-white px-6 py-3.5 rounded-full text-sm font-bold shadow-md hover:shadow-glow-magenta transition-all duration-300 cursor-pointer"
+        >
+          <span x-text="t('nav_book_service')">Get A Quote</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger & Language Toggle -->
+      <div class="flex lg:hidden items-center gap-2">
+        <div class="flex items-center bg-neutral-100 p-0.5 rounded-full text-xs font-semibold border border-black/5">
+          <button 
+            type="button"
+            @click="setLang('en')" 
+            :class="lang === 'en' ? 'bg-[#08080C] text-white shadow-sm font-bold' : 'text-neutral-500'"
+            class="px-2 py-0.5 rounded-full transition-all cursor-pointer text-[11px]"
+          >
+            EN
+          </button>
+          <button 
+            type="button"
+            @click="setLang('es')" 
+            :class="lang === 'es' ? 'bg-[#08080C] text-white shadow-sm font-bold' : 'text-neutral-500'"
+            class="px-2 py-0.5 rounded-full transition-all cursor-pointer text-[11px]"
+          >
+            ES
+          </button>
+        </div>
+
+        <button 
+          @click="mobileMenuOpen = !mobileMenuOpen" 
+          class="p-2.5 rounded-xl bg-neutral-100 text-[#08080C] hover:bg-neutral-200 transition-colors cursor-pointer"
+          aria-label="Toggle mobile menu"
+        >
+          <i data-lucide="menu" class="w-6 h-6" x-show="!mobileMenuOpen"></i>
+          <i data-lucide="x" class="w-6 h-6" x-show="mobileMenuOpen" x-cloak></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div 
+      x-show="mobileMenuOpen" 
+      x-cloak 
+      x-transition 
+      class="lg:hidden bg-white border-b border-neutral-200 px-6 py-6 space-y-4 shadow-2xl"
+    >
+      <div class="flex flex-col space-y-3 font-semibold text-neutral-800">
+        <a href="#about" @click="mobileMenuOpen = false" class="py-2.5 border-b border-neutral-100 hover:text-[#FD3A85] transition-colors" x-text="t('nav_about')">About</a>
+        <a href="#services" @click="mobileMenuOpen = false" class="py-2.5 border-b border-neutral-100 hover:text-[#FD3A85] transition-colors" x-text="t('nav_services')">Services</a>
+        <a href="#testimonials" @click="mobileMenuOpen = false" class="py-2.5 border-b border-neutral-100 hover:text-[#FD3A85] transition-colors" x-text="t('nav_reviews')">Reviews</a>
+        <a href="#faq" @click="mobileMenuOpen = false" class="py-2.5 border-b border-neutral-100 hover:text-[#FD3A85] transition-colors" x-text="t('nav_faq')">FAQ</a>
+      </div>
+
+      <div class="pt-4 flex flex-col gap-3">
+        <a href="tel:7073184321" class="flex items-center justify-center gap-2 py-3 bg-[#F7F8FA] rounded-xl font-bold text-[#08080C]">
+          <i data-lucide="phone" class="w-4 h-4 text-[#FD3A85]"></i> (707) 318-4321
+        </a>
+        <a 
+          href="#contact"
+          @click="mobileMenuOpen = false" 
+          class="w-full py-3.5 bg-[#FD3A85] text-white font-bold rounded-full text-center shadow-glow-magenta cursor-pointer block"
+          x-text="t('nav_book_service') + ' (20% OFF)'"
+        >
+          Get A Quote (20% OFF)
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ========================================================================= -->
+  <!-- 3. HERO SECTION (Exact Split-Hero from Fresh Home V1 with Obsidian & Magenta) -->
+  <!-- ========================================================================= -->
+  <section id="hero" class="relative bg-mesh-dark text-white pt-12 pb-20 md:py-24 overflow-hidden border-b border-neutral-800">
+    
+    <!-- Ambient glowing orbs -->
+    <div class="absolute top-1/4 -left-20 w-96 h-96 bg-[#FD3A85]/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 right-0 w-80 h-80 bg-[#FD3A85]/10 rounded-full blur-3xl pointer-events-none"></div>
+    
+    <!-- Background SVG accent wave ribbon -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
+      <svg class="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
+        <path d="M-100 200 C 300 400, 700 100, 1500 500 L 1500 800 L -100 800 Z" fill="url(#hero-gradient)" />
+        <defs>
+          <linearGradient id="hero-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FD3A85" />
+            <stop offset="100%" stop-color="#08080C" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Column: Typography & Conversion Actions -->
+        <div class="lg:col-span-7 space-y-8 text-left">
+          
+          <!-- Pill Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+            <span class="text-xs sm:text-sm font-bold tracking-wider text-pink-300 uppercase" x-text="t('hero_eyebrow')">
+              ✦ ✦ CLEANING SERVICES COMPANY ● PETALUMA, CA
+            </span>
+          </div>
+
+          <!-- Exact Fresh V1 Headline Structure -->
+          <h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight leading-[1.12]" x-html="t('hero_title')">
+            Residential &<br/>
+            commercial <span class="text-[#FD3A85] underline decoration-[#FD3A85]/50 decoration-4 underline-offset-8">cleaning</span><br/>
+            tailored services.
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-base sm:text-lg text-neutral-300 max-w-xl font-normal leading-relaxed" x-text="t('hero_subtitle')">
+            Reliable, professional, and 100% eco-friendly cleaning solutions for homes and businesses across Petaluma and Sonoma County. Safe for children, pets, and the environment.
+          </p>
+
+          <!-- CTA Pill Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a 
+              href="#contact" 
+              class="inline-flex items-center gap-2.5 bg-[#FD3A85] hover:bg-[#E02670] text-white px-7 py-4 rounded-full text-base font-bold shadow-glow-magenta hover:scale-105 transition-all duration-200 cursor-pointer"
+            >
+              <span x-text="t('hero_cta_quote')">Get Free Quote</span>
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+
+            <a 
+              href="#services" 
+              class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-7 py-4 rounded-full text-base font-bold backdrop-blur-sm transition-all duration-200"
+            >
+              <span x-text="t('hero_cta_services')">Explore Services</span>
+              <i data-lucide="sparkles" class="w-4 h-4 text-[#FD3A85]"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Hero Visual Card (Fresh V1 Layout) -->
+        <div class="lg:col-span-5 relative">
+          
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <!-- Decorative outline ring -->
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-[#FD3A85] to-purple-600 rounded-[36px] blur-md opacity-30"></div>
+
+            <!-- Portrait Card -->
+            <div class="relative rounded-[32px] overflow-hidden border border-white/15 bg-neutral-900 shadow-2xl">
+              <img 
+                src="/src/assets/images/regenerated_image_1787355158404.jpg" 
+                alt="Professional Cleaning Specialist in Petaluma" 
+                referrerpolicy="no-referrer"
+                class="w-full h-[460px] sm:h-[520px] object-cover object-center transform hover:scale-105 transition-transform duration-700 block"
+              />
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 4. ABOUT BLACK DIAMOND (Bento Grid Section) -->
+  <!-- ========================================================================= -->
+  <section id="about" class="py-20 lg:py-24 bg-white border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Single Vertical Visual Card (lg:col-span-5) -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-[32px] overflow-hidden shadow-md border-0 border-none ring-0 outline-none">
+            <img 
+              src="/src/assets/images/regenerated_image_1787598391732.jpg" 
+              alt="Black Diamond Cleaning Specialist" 
+              referrerpolicy="no-referrer"
+              class="w-full h-[460px] sm:h-[520px] object-cover object-center rounded-[32px] overflow-hidden block hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </div>
+
+        <!-- Right Column: Header & Bento Stat Grid (lg:col-span-7) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Editorial Copy -->
+          <div class="space-y-4">
+            <div class="inline-flex items-center gap-2 text-xs font-bold text-[#FD3A85] tracking-widest uppercase">
+              <span x-text="t('about_eyebrow')">✦ ABOUT BLACK DIAMOND</span>
+            </div>
+            
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#08080C] tracking-tight leading-[1.18]" x-html="t('about_title')">
+              <span class="text-[#FD3A85]">Trusted professionals</span> transforming your spaces.
+            </h2>
+            
+            <p class="text-neutral-600 text-base sm:text-lg leading-relaxed" x-text="t('about_description')">
+              We create fresh, hygienic, and welcoming environments that support a healthier life. We provide professional, eco-friendly services in Petaluma, CA, using non-toxic products and ensuring top quality in every detail.
+            </p>
+          </div>
+
+          <!-- 2x2 Bento Stat Cards Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+            
+            <!-- Card 1: 500+ -->
+            <div class="group bg-neutral-50 p-6 rounded-2xl border border-neutral-200/60 shadow-xs hover:bg-[#FD3A85] hover:border-[#FD3A85] transition-all duration-300 ease-out transform hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/25 cursor-default">
+              <div class="text-3xl sm:text-4xl font-black text-[#08080C] group-hover:text-white tracking-tight transition-colors duration-300">500+</div>
+              <p class="text-sm font-semibold text-neutral-500 group-hover:text-white/90 mt-2 transition-colors duration-300" x-text="t('about_stat1_desc')">
+                Homes and spaces served in Petaluma
+              </p>
+            </div>
+
+            <!-- Card 2: 100% -->
+            <div class="group bg-neutral-50 p-6 rounded-2xl border border-neutral-200/60 shadow-xs hover:bg-[#FD3A85] hover:border-[#FD3A85] transition-all duration-300 ease-out transform hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/25 cursor-default">
+              <div class="text-3xl sm:text-4xl font-black text-[#08080C] group-hover:text-white tracking-tight transition-colors duration-300">100%</div>
+              <p class="text-sm font-semibold text-neutral-500 group-hover:text-white/90 mt-2 transition-colors duration-300" x-text="t('about_stat2_desc')">
+                Eco-friendly, pet-safe products
+              </p>
+            </div>
+
+            <!-- Card 3: 20% OFF -->
+            <div class="group bg-neutral-50 p-6 rounded-2xl border border-neutral-200/60 shadow-xs hover:bg-[#FD3A85] hover:border-[#FD3A85] transition-all duration-300 ease-out transform hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/25 cursor-default">
+              <div class="text-3xl sm:text-4xl font-black text-[#08080C] group-hover:text-white tracking-tight transition-colors duration-300">20% OFF</div>
+              <p class="text-sm font-semibold text-neutral-500 group-hover:text-white/90 mt-2 transition-colors duration-300" x-text="t('about_stat3_desc')">
+                On your first service
+              </p>
+            </div>
+
+            <!-- Card 4: 99.8% -->
+            <div class="group bg-neutral-50 p-6 rounded-2xl border border-neutral-200/60 shadow-xs hover:bg-[#FD3A85] hover:border-[#FD3A85] transition-all duration-300 ease-out transform hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/25 cursor-default">
+              <div class="text-3xl sm:text-4xl font-black text-[#08080C] group-hover:text-white tracking-tight transition-colors duration-300">99.8%</div>
+              <p class="text-sm font-semibold text-neutral-500 group-hover:text-white/90 mt-2 transition-colors duration-300" x-text="t('about_stat4_desc')">
+                Of our clients recommend our services
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 5. SERVICES SECTION (Editorial Horizontal Row List) -->
+  <!-- ========================================================================= -->
+  <section id="services" class="py-20 lg:py-28 bg-[#F3F4F8] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-pink-100/60 via-transparent to-transparent border-b border-neutral-200/80 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+      
+      <!-- Header Block (Left Aligned) -->
+      <div class="space-y-3 mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FD3A85]/10 text-xs font-black text-[#FD3A85] tracking-wider uppercase">
+          <span x-text="t('services_eyebrow')">✦ OUR EXPERTISE</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#08080C] tracking-tight leading-[1.15]" x-html="t('services_title')">
+          Professional <br class="hidden sm:block"/><span class="text-[#FD3A85]">Cleaning Services.</span>
+        </h2>
+      </div>
+
+      <!-- Vertical List Container (Horizontal Row Cards) -->
+      <div class="space-y-6 sm:space-y-8">
+        
+        <!-- Service 01: Residential Cleaning -->
+        <div class="bg-white rounded-[28px] sm:rounded-[32px] p-6 sm:p-8 border border-neutral-200/80 shadow-xs hover:shadow-xl hover:shadow-neutral-900/5 hover:border-neutral-300/80 transition-all duration-300 group">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-center">
+            
+            <!-- Left - Image Preview (md:col-span-4 lg:col-span-4) -->
+            <div class="md:col-span-4 lg:col-span-4">
+              <div class="rounded-[24px] overflow-hidden aspect-[16/10] sm:aspect-[4/3] bg-neutral-100 border border-black/5 shadow-sm">
+                <img 
+                  src="/src/assets/images/regenerated_image_1787585825101.jpg" 
+                  alt="Residential Cleaning" 
+                  referrerpolicy="no-referrer"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
+              </div>
+            </div>
+
+            <!-- Center - Information (md:col-span-5 lg:col-span-5 space-y-3) -->
+            <div class="md:col-span-5 lg:col-span-5 space-y-3">
+              <h3 class="text-2xl font-bold text-[#08080C] group-hover:text-[#FD3A85] transition-colors duration-300" x-text="t('svc_res_title')">
+                Residential Cleaning
+              </h3>
+              <p class="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl" x-text="t('svc_res_desc')">
+                Complete care for your home, from top to bottom. We use 100% eco-friendly, non-toxic products that are safe for children, pets, and the environment.
+              </p>
+            </div>
+
+            <!-- Right - Pill CTA Button (md:col-span-3 lg:col-span-3 flex md:justify-end items-center mt-4 md:mt-0) -->
+            <div class="md:col-span-3 lg:col-span-3 flex md:justify-end items-center mt-4 md:mt-0">
+              <a 
+                href="#contact" 
+                @click="contactService = 'residential'" 
+                class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 shrink-0 whitespace-nowrap shadow-sm bg-[#08080C] text-white hover:bg-[#FD3A85] hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-0.5 cursor-pointer"
+                aria-label="Quote Residential Cleaning"
+              >
+                <span x-text="t('svc_quote_btn')">Quote Service →</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Service 02: Commercial & Office -->
+        <div class="bg-white rounded-[28px] sm:rounded-[32px] p-6 sm:p-8 border border-neutral-200/80 shadow-xs hover:shadow-xl hover:shadow-neutral-900/5 hover:border-neutral-300/80 transition-all duration-300 group">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-center">
+            
+            <!-- Left - Image Preview (md:col-span-4 lg:col-span-4) -->
+            <div class="md:col-span-4 lg:col-span-4">
+              <div class="rounded-[24px] overflow-hidden aspect-[16/10] sm:aspect-[4/3] bg-neutral-100 border border-black/5 shadow-sm">
+                <img 
+                  src="/src/assets/images/regenerated_image_1787587313441.jpg" 
+                  alt="Commercial & Office Cleaning" 
+                  referrerpolicy="no-referrer"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
+              </div>
+            </div>
+
+            <!-- Center - Information (md:col-span-5 lg:col-span-5 space-y-3) -->
+            <div class="md:col-span-5 lg:col-span-5 space-y-3">
+              <h3 class="text-2xl font-bold text-[#08080C] group-hover:text-[#FD3A85] transition-colors duration-300" x-text="t('svc_com_title')">
+                Commercial & Office
+              </h3>
+              <p class="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl" x-text="t('svc_com_desc')">
+                We care for every space to create healthy, organized, and pleasant environments. We tailor our services to the needs of offices, studios, and local businesses.
+              </p>
+            </div>
+
+            <!-- Right - Pill CTA Button (md:col-span-3 lg:col-span-3 flex md:justify-end items-center mt-4 md:mt-0) -->
+            <div class="md:col-span-3 lg:col-span-3 flex md:justify-end items-center mt-4 md:mt-0">
+              <a 
+                href="#contact" 
+                @click="contactService = 'commercial'" 
+                class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 shrink-0 whitespace-nowrap shadow-sm bg-[#08080C] text-white hover:bg-[#FD3A85] hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-0.5 cursor-pointer"
+                aria-label="Quote Commercial Cleaning"
+              >
+                <span x-text="t('svc_quote_btn')">Quote Service →</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Service 03: Deep Cleaning -->
+        <div class="bg-white rounded-[28px] sm:rounded-[32px] p-6 sm:p-8 border border-neutral-200/80 shadow-xs hover:shadow-xl hover:shadow-neutral-900/5 hover:border-neutral-300/80 transition-all duration-300 group">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-center">
+            
+            <!-- Left - Image Preview (md:col-span-4 lg:col-span-4) -->
+            <div class="md:col-span-4 lg:col-span-4">
+              <div class="rounded-[24px] overflow-hidden aspect-[16/10] sm:aspect-[4/3] bg-neutral-100 border border-black/5 shadow-sm">
+                <img 
+                  src="/src/assets/images/regenerated_image_1787590515549.jpg" 
+                  alt="Deep Cleaning" 
+                  referrerpolicy="no-referrer"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
+              </div>
+            </div>
+
+            <!-- Center - Information (md:col-span-5 lg:col-span-5 space-y-3) -->
+            <div class="md:col-span-5 lg:col-span-5 space-y-3">
+              <h3 class="text-2xl font-bold text-[#08080C] group-hover:text-[#FD3A85] transition-colors duration-300" x-text="t('svc_deep_title')">
+                Deep Cleaning
+              </h3>
+              <p class="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl" x-text="t('svc_deep_desc')">
+                Detailed attention to eliminate built-up grime and restore freshness to every room. Ideal for homes needing a complete reset.
+              </p>
+            </div>
+
+            <!-- Right - Pill CTA Button (md:col-span-3 lg:col-span-3 flex md:justify-end items-center mt-4 md:mt-0) -->
+            <div class="md:col-span-3 lg:col-span-3 flex md:justify-end items-center mt-4 md:mt-0">
+              <a 
+                href="#contact" 
+                @click="contactService = 'deep_cleaning'" 
+                class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 shrink-0 whitespace-nowrap shadow-sm bg-[#08080C] text-white hover:bg-[#FD3A85] hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-0.5 cursor-pointer"
+                aria-label="Quote Deep Cleaning"
+              >
+                <span x-text="t('svc_quote_btn')">Quote Service →</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Service 04: Move In / Move Out -->
+        <div class="bg-white rounded-[28px] sm:rounded-[32px] p-6 sm:p-8 border border-neutral-200/80 shadow-xs hover:shadow-xl hover:shadow-neutral-900/5 hover:border-neutral-300/80 transition-all duration-300 group">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-center">
+            
+            <!-- Left - Image Preview (md:col-span-4 lg:col-span-4) -->
+            <div class="md:col-span-4 lg:col-span-4">
+              <div class="rounded-[24px] overflow-hidden aspect-[16/10] sm:aspect-[4/3] bg-neutral-100 border border-black/5 shadow-sm">
+                <img 
+                  src="/src/assets/images/regenerated_image_1787592605707.jpg" 
+                  alt="Move-In & Move-Out Cleaning" 
+                  referrerpolicy="no-referrer"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
+              </div>
+            </div>
+
+            <!-- Center - Information (md:col-span-5 lg:col-span-5 space-y-3) -->
+            <div class="md:col-span-5 lg:col-span-5 space-y-3">
+              <h3 class="text-2xl font-bold text-[#08080C] group-hover:text-[#FD3A85] transition-colors duration-300" x-text="t('svc_move_title')">
+                Move-In & Move-Out
+              </h3>
+              <p class="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl" x-text="t('svc_move_desc')">
+                A thorough, detailed service so you can close one chapter or begin a new one in a fresh, clean space ready to enjoy.
+              </p>
+            </div>
+
+            <!-- Right - Pill CTA Button (md:col-span-3 lg:col-span-3 flex md:justify-end items-center mt-4 md:mt-0) -->
+            <div class="md:col-span-3 lg:col-span-3 flex md:justify-end items-center mt-4 md:mt-0">
+              <a 
+                href="#contact" 
+                @click="contactService = 'move_in_out'" 
+                class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 shrink-0 whitespace-nowrap shadow-sm bg-[#08080C] text-white hover:bg-[#FD3A85] hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-0.5 cursor-pointer"
+                aria-label="Quote Move-In / Move-Out Cleaning"
+              >
+                <span x-text="t('svc_quote_btn')">Quote Service →</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 6. "WHY CHOOSE US" / THE BLACK DIAMOND DIFFERENCE (4-Column Feature Grid) -->
+  <!-- ========================================================================= -->
+  <section id="difference" class="py-20 lg:py-28 bg-white border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+      
+      <!-- Centered Header Block -->
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-neutral-50 border border-neutral-200/80 text-xs font-bold text-[#FD3A85] uppercase tracking-wider shadow-xs">
+          <span x-text="t('diff_eyebrow')">✦ WHY CHOOSE BLACK DIAMOND</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#08080C] tracking-tight leading-[1.15]" x-html="t('diff_title')">
+          Professional quality, <span class="text-[#FD3A85]">care you can feel.</span>
+        </h2>
+        <p class="text-neutral-600 text-base sm:text-lg mt-2 leading-relaxed" x-text="t('diff_subtitle')">
+          We combine professional cleaning techniques with eco-friendly products to care for every space and protect what matters most: your family, your pets, and the environment.
+        </p>
+      </div>
+
+      <!-- 4-Column Feature Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch pt-2">
+        
+        <!-- Card 01: Vetted & Insured Team -->
+        <div class="bg-white p-8 rounded-[28px] border border-neutral-200/80 shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-[#FD3A85]/10 text-[#FD3A85] flex items-center justify-center mb-6 group-hover:bg-[#FD3A85] group-hover:text-white transition-all duration-300 shadow-sm">
+              <i data-lucide="shield-check" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-[#08080C] mb-3" x-text="t('diff_c1_title')">
+              Vetted & Insured Team
+            </h3>
+            <p class="text-sm text-neutral-500 leading-relaxed" x-text="t('diff_c1_desc')">
+              Background-checked, highly trained local cleaners who respect your privacy and treat your property with utmost care.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 02: 100% Eco-Friendly Care -->
+        <div class="bg-white p-8 rounded-[28px] border border-neutral-200/80 shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-[#FD3A85]/10 text-[#FD3A85] flex items-center justify-center mb-6 group-hover:bg-[#FD3A85] group-hover:text-white transition-all duration-300 shadow-sm">
+              <i data-lucide="leaf" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-[#08080C] mb-3" x-text="t('diff_c2_title')">
+              100% Eco-Friendly Care
+            </h3>
+            <p class="text-sm text-neutral-500 leading-relaxed" x-text="t('diff_c2_desc')">
+              Formulated with plant-derived, biodegradable enzymes completely safe for infants, pets, and allergy-sensitive individuals.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 03: Transparent Flat Pricing -->
+        <div class="bg-white p-8 rounded-[28px] border border-neutral-200/80 shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-[#FD3A85]/10 text-[#FD3A85] flex items-center justify-center mb-6 group-hover:bg-[#FD3A85] group-hover:text-white transition-all duration-300 shadow-sm">
+              <i data-lucide="badge-dollar-sign" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-[#08080C] mb-3" x-text="t('diff_c3_title')">
+              Transparent Flat Pricing
+            </h3>
+            <p class="text-sm text-neutral-500 leading-relaxed" x-text="t('diff_c3_desc')">
+              Upfront pricing with zero hidden fees or surprise charges. What you see is exactly what you pay.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 04: 100% Satisfaction Guaranteed -->
+        <div class="bg-white p-8 rounded-[28px] border border-neutral-200/80 shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-[#FD3A85]/10 text-[#FD3A85] flex items-center justify-center mb-6 group-hover:bg-[#FD3A85] group-hover:text-white transition-all duration-300 shadow-sm">
+              <i data-lucide="sparkles" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-[#08080C] mb-3" x-text="t('diff_c4_title')">
+              100% Satisfaction Guaranteed
+            </h3>
+            <p class="text-sm text-neutral-500 leading-relaxed" x-text="t('diff_c4_desc')">
+              If any area doesn't meet your expectations, let us know within 24 hours and we'll re-clean it at no additional cost.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 7. "HOW IT WORKS" / OUR PROCESS (Cascading 3-Step Staggered Cards) -->
+  <!-- ========================================================================= -->
+  <section id="process" class="py-20 lg:py-28 bg-[#FAF9FB] border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+      
+      <!-- Split 2-Column Header Block -->
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6">
+        
+        <!-- Left Column: Eyebrow Tag & Main Headline -->
+        <div class="space-y-3 max-w-xl">
+          <div class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#FD3A85] tracking-widest uppercase">
+            <span x-text="t('proc_eyebrow')">• OUR PROCESS</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#08080C] tracking-tight leading-[1.15]" x-html="t('proc_title')">
+            Get cleaner space<br/>in just <span class="text-[#FD3A85]">three steps.</span>
+          </h2>
+        </div>
+
+        <!-- Right Column: Pill Action Button -->
+        <div class="shrink-0">
+          <a 
+            href="#contact"
+            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#08080C] text-white hover:bg-[#FD3A85] font-bold text-sm shadow-md transition-all duration-300 hover:shadow-pink-500/25 cursor-pointer"
+          >
+            <span x-text="t('proc_btn')">Get in Touch</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Staggered 3-Card Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start pt-12">
+        
+        <!-- Card 01: Top Aligned -->
+        <div class="step-card step-card-1 bg-[#FD3A85]/[0.06] border border-[#FD3A85]/15 p-8 rounded-[28px] shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[300px] transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/10 hover:-translate-y-1 group">
+          
+          <!-- Top Row inside Card -->
+          <div class="flex items-start justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-[#08080C] text-white flex items-center justify-center group-hover:bg-[#FD3A85] transition-all duration-300 shadow-sm">
+              <i data-lucide="clipboard-list" class="w-5 h-5"></i>
+            </div>
+            <span class="text-6xl font-black text-[#FD3A85]/20 leading-none select-none tracking-tighter">01</span>
+          </div>
+
+          <!-- Bottom Content inside Card -->
+          <div>
+            <h3 class="text-lg font-bold text-[#08080C] mt-8 mb-2 group-hover:text-[#FD3A85] transition-colors" x-text="t('proc_s1_title')">
+              Request your quote
+            </h3>
+            <p class="text-sm text-neutral-600 leading-relaxed" x-text="t('proc_s1_desc')">
+              Choose the service you need, send us your details, and receive a free, personalized quote.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Card 02: Moderately Pushed Down Initially -->
+        <div class="step-card step-card-2 bg-[#FD3A85]/[0.06] border border-[#FD3A85]/15 p-8 rounded-[28px] shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[300px] transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/10 hover:-translate-y-1 group will-change-transform">
+          
+          <!-- Top Row inside Card -->
+          <div class="flex items-start justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-[#08080C] text-white flex items-center justify-center group-hover:bg-[#FD3A85] transition-all duration-300 shadow-sm">
+              <i data-lucide="sparkles" class="w-5 h-5"></i>
+            </div>
+            <span class="text-6xl font-black text-[#FD3A85]/20 leading-none select-none tracking-tighter">02</span>
+          </div>
+
+          <!-- Bottom Content inside Card -->
+          <div>
+            <h3 class="text-lg font-bold text-[#08080C] mt-8 mb-2 group-hover:text-[#FD3A85] transition-colors" x-text="t('proc_s2_title')">
+              We coordinate & clean
+            </h3>
+            <p class="text-sm text-neutral-600 leading-relaxed" x-text="t('proc_s2_desc')">
+              We confirm the date that best fits your schedule, and our professional team arrives on time with 100% eco-friendly supplies.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Card 03: Deeply Pushed Down Initially -->
+        <div class="step-card step-card-3 bg-[#FD3A85]/[0.06] border border-[#FD3A85]/15 p-8 rounded-[28px] shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[300px] transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/10 hover:-translate-y-1 group will-change-transform">
+          
+          <!-- Top Row inside Card -->
+          <div class="flex items-start justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-[#08080C] text-white flex items-center justify-center group-hover:bg-[#FD3A85] transition-all duration-300 shadow-sm">
+              <i data-lucide="home" class="w-5 h-5"></i>
+            </div>
+            <span class="text-6xl font-black text-[#FD3A85]/20 leading-none select-none tracking-tighter">03</span>
+          </div>
+
+          <!-- Bottom Content inside Card -->
+          <div>
+            <h3 class="text-lg font-bold text-[#08080C] mt-8 mb-2 group-hover:text-[#FD3A85] transition-colors" x-text="t('proc_s3_title')">
+              Enjoy a fresh space
+            </h3>
+            <p class="text-sm text-neutral-600 leading-relaxed" x-text="t('proc_s3_desc')">
+              Relax and enjoy a spotless, refreshed, and healthier environment while we handle all the hard work.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 9. CUSTOMER TESTIMONIALS & REVIEWS (Automated Infinite Marquee Slider) -->
+  <!-- ========================================================================= -->
+  <section id="testimonials" class="py-20 lg:py-28 bg-white border-b border-neutral-200 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+      
+      <!-- Header Block (Centered) -->
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        
+        <!-- Rating Badge -->
+        <div class="inline-flex items-center gap-2 bg-[#FD3A85]/10 border border-[#FD3A85]/20 px-4 py-1.5 rounded-full text-xs font-bold text-[#FD3A85] mb-4 shadow-xs">
+          <span x-text="t('rev_badge')">★ 5.0 Star Reviews on Google & Facebook</span>
+        </div>
+
+        <!-- Main Headline (H2) -->
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-[#08080C] tracking-tight text-center max-w-2xl mx-auto leading-tight" x-html="t('rev_title')">
+          What our clients say <br class="hidden sm:block"/>about our <span class="text-[#FD3A85]">cleaning services</span>
+        </h2>
+
+        <p class="text-neutral-600 text-base sm:text-lg mt-4 max-w-xl mx-auto" x-text="t('rev_subtitle')">
+          Real verified feedback from homeowners and businesses across Petaluma and Sonoma County.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- Outer Marquee Container with Gradient Fades -->
+    <div class="overflow-hidden w-full relative py-8">
+      <!-- Left and Right Gradient Masks to Soften Entry/Exit -->
+      <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 z-10 bg-gradient-to-r from-white to-transparent"></div>
+      <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 z-10 bg-gradient-to-l from-white to-transparent"></div>
+
+      <!-- Inner Continuous Marquee Track (Duplicated 2x for Infinite Seamless Loop) -->
+      <div class="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused] select-none pl-6">
+        
+        <!-- ================= SET 1 ================= -->
+        <!-- Card 1 (Sarah Jenkins) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev1_text')">
+              “Black Diamond transformed our historic Petaluma home! With two golden retrievers and toddlers, having 100% non-toxic supplies was a non-negotiable. They exceeded every expectation.”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&auto=format&fit=crop&q=80" alt="Sarah Jenkins" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">Sarah Jenkins</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev1_client')">Westside Petaluma • Residential</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 (Marcus Taylor) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev2_text')">
+              “We booked their move-out deep clean for our rental on D Street. The landlord inspected and returned our full deposit within hours. The oven and windows were like brand new.”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&auto=format&fit=crop&q=80" alt="Marcus Taylor" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">Marcus Taylor</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev2_client')">Sonoma County • Move-In / Move-Out</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 (Elena Ramirez) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev3_text')">
+              “The Black Diamond team cleans our studio and office twice a week. They are extremely punctual, professional, and reliable. Every space is left spotless with a fresh, natural scent.”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&auto=format&fit=crop&q=80" alt="Elena Ramirez" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">Elena Ramirez</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev3_client')">Downtown Petaluma • Commercial</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 (David & Claire Bennett) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev4_text')">
+              “The best cleaning team in the North Bay. The crown molding and tiles were left spotless. My home feels clean and smells wonderful!”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="David & Claire Bennett" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">David & Claire Bennett</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev4_client')">Sonoma Valley • Deep Cleaning</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 (Jessica Miller) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev5_text')">
+              “Their bi-weekly recurring service is a lifesaver. Consistent quality, friendly communication, and eco-friendly products that are safe around our newborn and cat.”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&auto=format&fit=crop&q=80" alt="Jessica Miller" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">Jessica Miller</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev5_client')">Petaluma, CA • Bi-Weekly Recurring</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 (Robert Hernandez) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev6_text')">
+              “Top notch attention to detail. We tried several cleaners in Petaluma before finding Black Diamond. Their team is simply on another level of professionalism.”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80" alt="Robert Hernandez" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">Robert Hernandez</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev6_client')">Bodega Ave • Residential</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= SET 2 (DUPLICATE FOR SEAMLESS LOOP) ================= -->
+        <!-- Card 1 (Sarah Jenkins) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" aria-hidden="true">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev1_text')">
+              “Black Diamond transformed our historic Petaluma home! With two golden retrievers and toddlers, having 100% non-toxic supplies was a non-negotiable. They exceeded every expectation.”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&auto=format&fit=crop&q=80" alt="Sarah Jenkins" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">Sarah Jenkins</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev1_client')">Westside Petaluma • Residential</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 (Marcus Taylor) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" aria-hidden="true">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev2_text')">
+              “We booked their move-out deep clean for our rental on D Street. The landlord inspected and returned our full deposit within hours. The oven and windows were like brand new.”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&auto=format&fit=crop&q=80" alt="Marcus Taylor" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">Marcus Taylor</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev2_client')">Sonoma County • Move-In / Move-Out</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 (Elena Ramirez) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" aria-hidden="true">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev3_text')">
+              “The Black Diamond team cleans our studio and office twice a week. They are extremely punctual, professional, and reliable. Every space is left spotless with a fresh, natural scent.”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&auto=format&fit=crop&q=80" alt="Elena Ramirez" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">Elena Ramirez</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev3_client')">Downtown Petaluma • Commercial</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 (David & Claire Bennett) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" aria-hidden="true">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev4_text')">
+              “The best cleaning team in the North Bay. The crown molding and tiles were left spotless. My home feels clean and smells wonderful!”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="David & Claire Bennett" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">David & Claire Bennett</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev4_client')">Sonoma Valley • Deep Cleaning</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 (Jessica Miller) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" aria-hidden="true">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev5_text')">
+              “Their bi-weekly recurring service is a lifesaver. Consistent quality, friendly communication, and eco-friendly products that are safe around our newborn and cat.”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&auto=format&fit=crop&q=80" alt="Jessica Miller" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">Jessica Miller</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev5_client')">Petaluma, CA • Bi-Weekly Recurring</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 (Robert Hernandez) -->
+        <div class="min-w-[340px] sm:min-w-[380px] max-w-[380px] bg-white p-8 rounded-[28px] border border-neutral-200/70 shadow-sm flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" aria-hidden="true">
+          <div>
+            <div class="flex items-center gap-1 text-[#FD3A85] text-base mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs font-bold text-neutral-400 ml-1.5">5.0</span>
+            </div>
+            <p class="text-neutral-700 text-base font-medium leading-relaxed italic mb-8" x-text="t('rev6_text')">
+              “Top notch attention to detail. We tried several cleaners in Petaluma before finding Black Diamond. Their team is simply on another level of professionalism.”
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-neutral-100">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80" alt="Robert Hernandez" class="w-12 h-12 rounded-full object-cover shrink-0 ring-2 ring-neutral-100">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-[#08080C] truncate">Robert Hernandez</div>
+              <div class="text-xs text-neutral-500 truncate" x-text="t('rev6_client')">Bodega Ave • Residential</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 10. HIGH-CONVERTING 2-COLUMN CONTACT & BOOKING SECTION -->
+  <!-- ========================================================================= -->
+  <section id="contact" class="py-20 lg:py-28 bg-[#F3F4F8] border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left Column: Direct Booking & Contact Form (lg:col-span-6) -->
+        <div class="lg:col-span-6 bg-[#0B0B10] text-white p-8 sm:p-10 rounded-[32px] border border-white/10 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+          
+          <!-- Heading Block -->
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-2 tracking-tight leading-tight" x-text="t('contact_title')">
+              Request Your Free Quote!
+            </h2>
+            <p class="text-sm text-neutral-300 mb-6 sm:mb-8 font-normal leading-relaxed" x-text="t('contact_subtitle')">
+              Fill out the form to receive your custom estimate with 20% OFF.
+            </p>
+
+            <!-- Success State -->
+            <div x-show="contactSuccess" x-cloak class="p-6 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-center space-y-4 my-auto">
+              <div class="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+                <i data-lucide="check-circle" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white" x-text="t('contact_success_title')">Appointment Request Sent!</h3>
+              <p class="text-xs sm:text-sm text-emerald-200/90 leading-relaxed max-w-md mx-auto" x-text="t('contact_success_desc')">
+                Thank you! We will reach out within 2 hours with your 20% discount confirmed.
+              </p>
+              <button 
+                type="button"
+                @click="contactSuccess = false" 
+                class="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-colors cursor-pointer"
+                x-text="t('contact_reset')"
+              >
+                Send Another Request
+              </button>
+            </div>
+
+            <!-- Form Inputs Grid -->
+            <form x-show="!contactSuccess" @submit.prevent="submitContactForm()" class="space-y-4">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-neutral-300 mb-1.5" x-text="t('contact_fname')">First Name</label>
+                  <input 
+                    type="text" 
+                    required 
+                    x-model="contactFname"
+                    :placeholder="t('contact_fname_ph')" 
+                    class="w-full bg-[#16161F] border border-white/10 focus:border-[#FD3A85] focus:ring-1 focus:ring-[#FD3A85] rounded-xl px-4 py-3.5 text-white placeholder-neutral-500 text-sm focus:outline-none transition-colors"
+                  />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-neutral-300 mb-1.5" x-text="t('contact_lname')">Last Name</label>
+                  <input 
+                    type="text" 
+                    required 
+                    x-model="contactLname"
+                    :placeholder="t('contact_lname_ph')" 
+                    class="w-full bg-[#16161F] border border-white/10 focus:border-[#FD3A85] focus:ring-1 focus:ring-[#FD3A85] rounded-xl px-4 py-3.5 text-white placeholder-neutral-500 text-sm focus:outline-none transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-neutral-300 mb-1.5" x-text="t('contact_phone')">Contact Number</label>
+                  <input 
+                    type="tel" 
+                    required 
+                    x-model="contactPhone"
+                    :placeholder="t('contact_phone_ph')" 
+                    class="w-full bg-[#16161F] border border-white/10 focus:border-[#FD3A85] focus:ring-1 focus:ring-[#FD3A85] rounded-xl px-4 py-3.5 text-white placeholder-neutral-500 text-sm focus:outline-none transition-colors"
+                  />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-neutral-300 mb-1.5" x-text="t('contact_service')">Select Service</label>
+                  <select 
+                    x-model="contactService"
+                    class="w-full bg-[#16161F] border border-white/10 focus:border-[#FD3A85] focus:ring-1 focus:ring-[#FD3A85] rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none transition-colors cursor-pointer"
+                  >
+                    <option value="residential" x-text="t('tab_residential')">Residential Cleaning</option>
+                    <option value="commercial" x-text="t('tab_commercial')">Commercial & Office</option>
+                    <option value="deep_cleaning" x-text="t('tab_deep')">Deep Cleaning</option>
+                    <option value="move_in_out" x-text="t('tab_move')">Move-In / Move-Out</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-neutral-300 mb-1.5" x-text="t('contact_msg')">Message / Notes</label>
+                <textarea 
+                  rows="3" 
+                  x-model="contactMsg"
+                  :placeholder="t('contact_msg_ph')" 
+                  class="w-full bg-[#16161F] border border-white/10 focus:border-[#FD3A85] focus:ring-1 focus:ring-[#FD3A85] rounded-xl p-4 text-white placeholder-neutral-500 text-sm focus:outline-none transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button 
+                type="submit" 
+                class="w-full py-4 mt-2 rounded-full bg-[#FD3A85] hover:bg-[#E84393] text-white font-bold text-base shadow-lg shadow-pink-500/25 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
+              >
+                <span x-text="t('contact_submit')">Claim 20% OFF & Get Quote</span>
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              </button>
+
+            </form>
+          </div>
+
+          <!-- Bottom Contact Footnote -->
+          <div class="pt-6 mt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-neutral-400 border-t border-white/10">
+            <a href="tel:7073184321" class="flex items-center gap-1.5 hover:text-white transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-[#FD3A85]"></i>
+              <span>(707) 318-4321</span>
+            </a>
+            <a href="mailto:customer@blackdiamondcleaning.us" class="flex items-center gap-1.5 hover:text-white transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-[#FD3A85]"></i>
+              <span>customer@blackdiamondcleaning.us</span>
+            </a>
+            <div class="flex items-center gap-1.5">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-[#FD3A85]"></i>
+              <span x-text="t('cta_hours')">Mon - Sat: 7:00 AM - 7:00 PM</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Image Showcase & Guarantee Card (lg:col-span-6) -->
+        <div class="lg:col-span-6 relative rounded-[32px] overflow-hidden min-h-[500px] flex flex-col justify-end border-0 border-none ring-0 outline-none shadow-none bg-neutral-900 group">
+          
+          <!-- Static Single Showcase Photo -->
+          <img 
+            src="/src/assets/images/regenerated_image_1787605262511.jpg" 
+            alt="Black Diamond Cleaning Quality Guarantee" 
+            referrerpolicy="no-referrer"
+            class="absolute inset-0 w-full h-full object-cover rounded-[32px]"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none rounded-[32px]"></div>
+
+          <!-- Bottom Overlaid Guarantee Banner (Full-Width Expanded Text, No Arrow Buttons) -->
+          <div class="bg-[#FD3A85] text-white p-7 sm:p-8 rounded-b-[32px] sm:rounded-[24px] sm:m-4 shadow-xl relative z-10">
+            <div class="space-y-1.5 w-full">
+              <h3 class="text-2xl font-bold leading-tight" x-text="t('contact_guarantee_title')">
+                100% Satisfaction Guaranteed!
+              </h3>
+              <p class="text-sm text-pink-100 leading-snug" x-text="t('contact_guarantee_sub')">
+                Reliable results backed by the use of non-toxic products.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 11. FAQ ACCORDION (Exact Fresh Style with Alpine.js) -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-20 lg:py-28 bg-white border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+      <div class="max-w-4xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center space-y-3 mb-14">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FD3A85]/10 text-xs font-bold text-[#FD3A85] uppercase tracking-wider">
+          <span x-text="t('faq_eyebrow')">[ GOT QUESTIONS? ]</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-[#08080C] tracking-tight" x-text="t('faq_title')">
+          Frequently asked questions
+        </h2>
+        <p class="text-neutral-600 text-base" x-text="t('faq_subtitle')">
+          Everything you need to know about our eco-friendly products, scheduling, and 20% discount.
+        </p>
+      </div>
+
+      <!-- FAQ Accordion Items -->
+      <div class="space-y-4" x-data="{ activeFaq: 1 }">
+        
+        <!-- FAQ 1 -->
+        <div class="bg-neutral-50/80 rounded-2xl border border-neutral-200/80 overflow-hidden transition-all">
+          <button 
+            type="button"
+            @click="activeFaq = (activeFaq === 1 ? null : 1)" 
+            class="w-full p-6 text-left font-bold text-base text-[#08080C] flex items-center justify-between gap-4 cursor-pointer"
+          >
+            <span x-text="t('faq1_q')">Are your cleaning products truly 100% pet-safe and non-toxic?</span>
+            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 border border-neutral-200 text-[#08080C]">
+              <i data-lucide="plus" class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-45 text-[#FD3A85]': activeFaq === 1 }"></i>
+            </div>
+          </button>
+          <div x-show="activeFaq === 1" x-collapse x-cloak class="px-6 pb-6 text-sm text-neutral-600 leading-relaxed" x-text="t('faq1_a')">
+            Yes, absolutely. We strictly utilize EPA Safer Choice certified, plant-based, biodegradable solutions with zero ammonia, chlorine, petroleum distillates, or artificial phthalates. They are completely safe for pets, infants, and individuals with respiratory sensitivities.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-neutral-50/80 rounded-2xl border border-neutral-200/80 overflow-hidden transition-all">
+          <button 
+            type="button"
+            @click="activeFaq = (activeFaq === 2 ? null : 2)" 
+            class="w-full p-6 text-left font-bold text-base text-[#08080C] flex items-center justify-between gap-4 cursor-pointer"
+          >
+            <span x-text="t('faq2_q')">How does the 20% OFF first clean discount work?</span>
+            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 border border-neutral-200 text-[#08080C]">
+              <i data-lucide="plus" class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-45 text-[#FD3A85]': activeFaq === 2 }"></i>
+            </div>
+          </button>
+          <div x-show="activeFaq === 2" x-collapse x-cloak class="px-6 pb-6 text-sm text-neutral-600 leading-relaxed" x-text="t('faq2_a')">
+            The 20% discount is automatically deducted when you book your first service online via our quote modal, or when mentioning the online flyer when calling (707) 318-4321.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-neutral-50/80 rounded-2xl border border-neutral-200/80 overflow-hidden transition-all">
+          <button 
+            type="button"
+            @click="activeFaq = (activeFaq === 3 ? null : 3)" 
+            class="w-full p-6 text-left font-bold text-base text-[#08080C] flex items-center justify-between gap-4 cursor-pointer"
+          >
+            <span x-text="t('faq3_q')">Do I need to be home while your team is cleaning?</span>
+            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 border border-neutral-200 text-[#08080C]">
+              <i data-lucide="plus" class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-45 text-[#FD3A85]': activeFaq === 3 }"></i>
+            </div>
+          </button>
+          <div x-show="activeFaq === 3" x-collapse x-cloak class="px-6 pb-6 text-sm text-neutral-600 leading-relaxed" x-text="t('faq3_a')">
+            Not at all! Many of our clients provide a lockbox code, garage pin, or key with building management. Our staff is fully bonded, background-screened, and will lock up securely upon completion.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-neutral-50/80 rounded-2xl border border-neutral-200/80 overflow-hidden transition-all">
+          <button 
+            type="button"
+            @click="activeFaq = (activeFaq === 4 ? null : 4)" 
+            class="w-full p-6 text-left font-bold text-base text-[#08080C] flex items-center justify-between gap-4 cursor-pointer"
+          >
+            <span x-text="t('faq4_q')">What areas in Sonoma County do you service?</span>
+            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 border border-neutral-200 text-[#08080C]">
+              <i data-lucide="plus" class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-45 text-[#FD3A85]': activeFaq === 4 }"></i>
+            </div>
+          </button>
+          <div x-show="activeFaq === 4" x-collapse x-cloak class="px-6 pb-6 text-sm text-neutral-600 leading-relaxed" x-text="t('faq4_a')">
+            We are based in Petaluma, CA, and proudly serve all surrounding Sonoma and Southern Marin county neighborhoods including Cotati, Rohnert Park, Penngrove, Santa Rosa, Sonoma Valley, and Novato.
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 12. MINIMAL FRESH V1 FOOTER (4-Column Layout) -->
+  <!-- ========================================================================= -->
+  <footer class="bg-[#08080C] text-neutral-400 border-t border-neutral-800 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-neutral-800">
+        
+        <!-- Col 1: Brand Info (2 cols wide on LG) -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="#" class="inline-flex items-center group py-1 mb-2">
+            <img 
+              src="/src/assets/images/regenerated_image_1787355732102.png" 
+              alt="Black Diamond Cleaning Services" 
+              class="h-14 md:h-16 max-h-[64px] w-auto object-contain object-left transition-transform duration-300 group-hover:scale-105 mb-2"
+            />
+          </a>
+          <p class="text-xs sm:text-sm text-neutral-400 max-w-sm leading-relaxed" x-text="t('footer_tagline')">
+            Petaluma and Sonoma County's premier residential and commercial cleaning service. 100% biodegradable botanical products, insured staff, and a pure commitment to clean living.
+          </p>
+          <div class="flex items-center gap-3 mt-6">
+            <a 
+              href="https://www.facebook.com/black.diamond.cleningservices/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FD3A85] text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-0.5 border border-white/10"
+              aria-label="Facebook"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a 
+              href="https://www.instagram.com/black.diamond.usa/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FD3A85] text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-0.5 border border-white/10"
+              aria-label="Instagram"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Services -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white" x-text="t('footer_services')">Services</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#services" class="hover:text-white transition-colors" x-text="t('tab_residential')">Residential Cleaning</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors" x-text="t('tab_commercial')">Commercial & Office</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors" x-text="t('tab_deep')">Deep Cleaning</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors" x-text="t('tab_move')">Move-In / Move-Out</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white" x-text="t('footer_company')">Company</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#difference" class="hover:text-white transition-colors" x-text="t('nav_difference')">Why Choose Us</a></li>
+            <li><a href="#process" class="hover:text-white transition-colors" x-text="t('nav_process')">Our Process</a></li>
+            <li><a href="#testimonials" class="hover:text-white transition-colors" x-text="t('nav_reviews')">Client Reviews</a></li>
+            <li><a href="#faq" class="hover:text-white transition-colors" x-text="t('nav_faq')">FAQs</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Hours -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white" x-text="t('footer_contact')">Contact</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li class="flex items-center gap-2">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-[#FD3A85]"></i>
+              <a href="tel:7073184321" class="text-white hover:text-[#FD3A85] font-semibold">(707) 318-4321</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-[#FD3A85]"></i>
+              <a href="mailto:customer@blackdiamondcleaning.us" class="hover:text-white">customer@blackdiamondcleaning.us</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#FD3A85]"></i>
+              <span>Petaluma & Sonoma County, CA</span>
+            </li>
+            <li class="flex items-center gap-2 text-neutral-500 pt-1">
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+              <span x-text="t('footer_hours')">Mon-Sat: 7am - 7pm</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Bottom Strip -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+        <div x-text="t('footer_rights')">
+          © 2026 Black Diamond Cleaning Services. All rights reserved. Petaluma, CA.
+        </div>
+        <div class="flex items-center gap-6">
+          <span x-text="t('footer_badge1')">🌿 100% Eco-Friendly Certified</span>
+          <span x-text="t('footer_badge2')">🔒 Licensed & Insured</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ========================================================================= -->
+  <!-- ALPINE.JS APPLICATION LOGIC & TRANSLATION SYSTEM -->
+  <!-- ========================================================================= -->
+  <script>
+    const translations = {
+      en: {
+        top_banner: "✦ FIRST TIME IN PETALUMA? GET 20% OFF YOUR 1ST CLEAN • CALL (707) 318-4321",
+        claim_discount: "Claim Discount",
+        
+        // Navigation
+        nav_home: "Home",
+        nav_about: "About",
+        nav_services: "Services",
+        nav_difference: "Why Choose Us",
+        nav_process: "Our Process",
+        nav_reviews: "Reviews",
+        nav_faq: "FAQ",
+        nav_book_service: "Get A Quote",
+        nav_res_title: "Residential Cleaning",
+        nav_res_sub: "Regular recurring & one-time",
+        nav_deep_title: "Deep & Move In/Out",
+        nav_deep_sub: "Full appliance & baseboard detail",
+        nav_com_title: "Commercial & Office",
+        nav_com_sub: "Retail, clinics & workspaces",
+
+        // Hero
+        hero_eyebrow: "✦ ✦ CLEANING SERVICES COMPANY ● PETALUMA, CA",
+        hero_title: 'Residential &<br/>commercial <span class="text-[#FD3A85] underline decoration-[#FD3A85]/50 decoration-4 underline-offset-8">cleaning</span><br/>tailored services.',
+        hero_subtitle: "Reliable, professional, and 100% eco-friendly cleaning solutions for homes and businesses across Petaluma and Sonoma County. Safe for children, pets, and the environment.",
+        hero_cta_quote: "Get Free Quote",
+        hero_cta_services: "Explore Services",
+
+        // About
+        about_eyebrow: "✦ ABOUT BLACK DIAMOND",
+        about_title: '<span class="text-[#FD3A85]">Trusted professionals</span> transforming your spaces.',
+        about_description: "We create fresh, hygienic, and welcoming environments that support a healthier life. We provide professional, eco-friendly services in Petaluma, CA, using non-toxic products and ensuring top quality in every detail.",
+        about_stat1_desc: "Homes and spaces served in Petaluma",
+        about_stat2_desc: "Eco-friendly, pet-safe products",
+        about_stat3_desc: "On your first service",
+        about_stat4_desc: "Of our clients recommend our services",
+
+        // Services
+        services_eyebrow: "✦ OUR EXPERTISE",
+        services_title: 'Professional <br class="hidden sm:block"/><span class="text-[#FD3A85]">Cleaning Services.</span>',
+        services_subtitle: "From residential homes to commercial facilities, we provide specialized eco-friendly cleaning plans designed to meet your exact lifestyle and operational needs across Petaluma, CA.",
+        svc_quote_btn: "Quote Service →",
+        tab_residential: "Residential Cleaning",
+        tab_commercial: "Commercial & Office",
+        tab_deep: "Deep Cleaning",
+        tab_move: "Move-In / Move-Out",
+        svc_res_title: "Residential Cleaning",
+        svc_res_desc: "Complete care for your home, from top to bottom. We use 100% eco-friendly, non-toxic products that are safe for children, pets, and the environment.",
+        svc_res_tag1: "Home Cleaning",
+        svc_res_tag2: "Apartments",
+        svc_res_tag3: "Recurring & One-Time",
+        svc_res_tag4: "100% Pet-Safe",
+        svc_com_title: "Commercial & Office Cleaning",
+        svc_com_desc: "We care for every space to create healthy, organized, and pleasant environments. We tailor our services to the needs of offices, studios, and local businesses.",
+        svc_com_tag1: "Offices & Studios",
+        svc_com_tag2: "Retail & Commercial",
+        svc_com_tag3: "Botanical Sanitization",
+        svc_com_tag4: "Flexible Hours",
+        svc_deep_title: "Deep Cleaning",
+        svc_deep_desc: "Detailed attention to eliminate built-up grime and restore freshness to every room. Ideal for homes needing a complete reset.",
+        svc_deep_tag1: "Deep Detailing",
+        svc_deep_tag2: "Kitchen & Bath Detailing",
+        svc_deep_tag3: "Residue Removal",
+        svc_deep_tag4: "Eco-Sanitization",
+        svc_move_title: "Move-In / Move-Out Cleaning",
+        svc_move_desc: "A thorough, detailed service so you can close one chapter or begin a new one in a fresh, clean space ready to enjoy.",
+        svc_move_tag1: "Deposit Handover",
+        svc_move_tag2: "Vacant Properties",
+        svc_move_tag3: "Cabinets & Windows",
+        svc_move_tag4: "100% Guarantee",
+
+        // Difference
+        diff_eyebrow: "✦ WHY CHOOSE BLACK DIAMOND",
+        diff_title: 'Professional quality, <span class="text-[#FD3A85]">care you can feel.</span>',
+        diff_subtitle: "We combine professional cleaning techniques with eco-friendly products to care for every space and protect what matters most: your family, your pets, and the environment.",
+        diff_c1_title: "Vetted & Insured Team",
+        diff_c1_desc: "Background-checked, highly trained local cleaners who respect your privacy and treat your property with utmost care.",
+        diff_c2_title: "100% Eco-Friendly Care",
+        diff_c2_desc: "Formulated with plant-derived, biodegradable enzymes completely safe for infants, pets, and allergy-sensitive individuals.",
+        diff_c3_title: "Transparent Flat Pricing",
+        diff_c3_desc: "Upfront pricing with zero hidden fees or surprise charges. What you see is exactly what you pay.",
+        diff_c4_title: "100% Satisfaction Guaranteed",
+        diff_c4_desc: "If any area doesn't meet your expectations, let us know within 24 hours and we'll re-clean it at no additional cost.",
+
+        // Process
+        proc_eyebrow: "• OUR PROCESS",
+        proc_title: 'Get cleaner space<br/>in just <span class="text-[#FD3A85]">three steps.</span>',
+        proc_btn: "Get in Touch",
+        proc_s1_title: "Request your quote",
+        proc_s1_desc: "Choose the service you need, send us your details, and receive a free, personalized quote.",
+        proc_s2_title: "We coordinate & clean",
+        proc_s2_desc: "We confirm the date that best fits your schedule, and our professional team arrives on time with 100% eco-friendly supplies.",
+        proc_s3_title: "Enjoy a fresh space",
+        proc_s3_desc: "Relax and enjoy a spotless, refreshed, and healthier environment while we handle all the hard work.",
+
+        // Reviews
+        rev_badge: "★ 5.0 Star Reviews on Google & Facebook",
+        rev_title: 'What our clients say <br class="hidden sm:block"/>about our <span class="text-[#FD3A85]">cleaning services</span>',
+        rev_subtitle: "Real verified feedback from homeowners and businesses across Petaluma and Sonoma County.",
+        rev1_text: "“Black Diamond transformed our historic Petaluma home! With two golden retrievers and toddlers, having 100% non-toxic supplies was a non-negotiable. They exceeded every expectation.”",
+        rev1_client: "Westside Petaluma • Residential",
+        rev2_text: "“We booked their move-out deep clean for our rental on D Street. The landlord inspected and returned our full deposit within hours. The oven and windows were like brand new.”",
+        rev2_client: "Sonoma County • Move-In / Move-Out",
+        rev3_text: "“The Black Diamond team cleans our studio and office twice a week. They are extremely punctual, professional, and reliable. Every space is left spotless with a fresh, natural scent.”",
+        rev3_client: "Downtown Petaluma • Commercial",
+        rev4_text: "“The best cleaning team in the North Bay. The crown molding and tiles were left spotless. My home feels clean and smells wonderful!”",
+        rev4_client: "Sonoma Valley • Deep Cleaning",
+        rev5_text: "“Their bi-weekly recurring service is a lifesaver. Consistent quality, friendly communication, and eco-friendly products that are safe around our newborn and cat.”",
+        rev5_client: "Petaluma, CA • Bi-Weekly Recurring",
+        rev6_text: "“Top notch attention to detail. We tried several cleaners in Petaluma before finding Black Diamond. Their team is simply on another level of professionalism.”",
+        rev6_client: "Bodega Ave • Residential",
+
+        // FAQ
+        faq_eyebrow: "[ GOT QUESTIONS? ]",
+        faq_title: "Frequently asked questions",
+        faq_subtitle: "Everything you need to know about our eco-friendly products, scheduling, and 20% discount.",
+        faq1_q: "Are your cleaning products truly 100% pet-safe and non-toxic?",
+        faq1_a: "Yes, absolutely. We strictly utilize EPA Safer Choice certified, plant-based, biodegradable solutions with zero ammonia, chlorine, petroleum distillates, or artificial phthalates. They are completely safe for pets, infants, and individuals with respiratory sensitivities.",
+        faq2_q: "How does the 20% OFF first clean discount work?",
+        faq2_a: "The 20% discount is automatically deducted when you book your first service online via our quote modal, or when mentioning the online flyer when calling (707) 318-4321.",
+        faq3_q: "Do I need to be home while your team is cleaning?",
+        faq3_a: "Not at all! Many of our clients provide a lockbox code, garage pin, or key with building management. Our staff is fully bonded, background-screened, and will lock up securely upon completion.",
+        faq4_q: "What areas in Sonoma County do you service?",
+        faq4_a: "We are based in Petaluma, CA, and proudly serve all surrounding Sonoma and Southern Marin county neighborhoods including Cotati, Rohnert Park, Penngrove, Santa Rosa, Sonoma Valley, and Novato.",
+
+        // CTA Banner
+        cta_badge: "✦ Limited Availability This Month",
+        cta_title: "Ready to experience a spotless, eco-friendly clean?",
+        cta_subtitle: "Claim your 20% discount today. Fast, easy, and hassle-free scheduling for your home or business in Petaluma.",
+        cta_btn: "Book Now & Save 20%",
+        cta_hours: "Mon - Sat: 7:00 AM - 7:00 PM",
+
+        // Contact 2-Col Section
+        contact_ribbon: "-20% OFF On First Booking",
+        contact_title: "Request Your Free Quote!",
+        contact_subtitle: "Fill out the form to receive your custom estimate with 20% OFF.",
+        contact_fname: "First Name",
+        contact_fname_ph: "e.g. Eleanor",
+        contact_lname: "Last Name",
+        contact_lname_ph: "e.g. Vance",
+        contact_phone: "Contact Number",
+        contact_phone_ph: "(707) 318-4321",
+        contact_service: "Select Service",
+        contact_msg: "Message / Notes",
+        contact_msg_ph: "Tell us about your home size, rooms, or any specific requests...",
+        contact_submit: "Claim 20% OFF & Get Quote",
+        contact_success_title: "Quote Request Sent!",
+        contact_success_desc: "Thank you! We will reach out within 2 hours with your custom 20% OFF quote.",
+        contact_reset: "Send Another Request",
+        contact_guarantee_title: "100% Satisfaction Guaranteed!",
+        contact_guarantee_sub: "Reliable results backed by the use of non-toxic products.",
+
+        // Footer
+        footer_tagline: "Petaluma and Sonoma County's premier residential and commercial cleaning service. 100% biodegradable botanical products, insured staff, and a pure commitment to clean living.",
+        footer_services: "Services",
+        footer_company: "Company",
+        footer_contact: "Contact",
+        footer_rights: "© 2026 Black Diamond Cleaning Services. All rights reserved. Petaluma, CA.",
+        footer_badge1: "🌿 100% Eco-Friendly Certified",
+        footer_badge2: "🔒 Licensed & Insured",
+        footer_hours: "Mon-Sat: 7am - 7pm",
+
+        // Modal
+        modal_promo: "✦ 20% Promo Applied",
+        modal_title: "Request Your Free Quote",
+        modal_selected: "Selected Service:",
+        modal_name: "Full Name",
+        modal_name_ph: "e.g. Eleanor Vance",
+        modal_phone: "Phone Number",
+        modal_email: "Email Address",
+        modal_date: "Preferred Date",
+        modal_window: "Arrival Window",
+        modal_morning: "Morning (8:00 AM - 11:00 AM)",
+        modal_midday: "Midday (11:00 AM - 2:00 PM)",
+        modal_afternoon: "Afternoon (2:00 PM - 5:00 PM)",
+        modal_address: "Property Address (Petaluma / Sonoma County)",
+        modal_address_ph: "e.g. 124 Bodega Ave, Petaluma, CA",
+        modal_submit: "Get Free Quote (20% OFF)",
+        modal_note: "Guaranteed response within 2 hours • Direct hotline: (707) 318-4321",
+        modal_success_title: "Quote Request Received!",
+        modal_success_desc1: "Thank you ",
+        modal_success_desc2: ". A team specialist will confirm your quote & arrival window at ",
+        modal_lbl_service: "Service:",
+        modal_lbl_date: "Date:",
+        modal_lbl_location: "Location:",
+        modal_done: "Done"
+      },
+      es: {
+        top_banner: "✦ ¿PRIMERA VEZ EN PETALUMA? OBTÉN 20% OFF EN TU 1RA LIMPIEZA • LLAMA AL (707) 318-4321",
+        claim_discount: "Reclamar Descuento",
+
+        // Navigation
+        nav_home: "Inicio",
+        nav_about: "Nosotros",
+        nav_services: "Servicios",
+        nav_difference: "Por Qué Elegirnos",
+        nav_process: "Nuestro Proceso",
+        nav_reviews: "Testimonios",
+        nav_faq: "Preguntas",
+        nav_book_service: "Cotizar Servicio",
+        nav_res_title: "Limpieza Residencial",
+        nav_res_sub: "Servicio regular recurrente y único",
+        nav_deep_title: "Profunda y Mudanzas",
+        nav_deep_sub: "Detalle de electrodomésticos y zoclos",
+        nav_com_title: "Comercial y Oficinas",
+        nav_com_sub: "Tiendas, clínicas y espacios de trabajo",
+
+        // Hero
+        hero_eyebrow: "✦ ✦ COMPAÑÍA DE SERVICIOS DE LIMPIEZA ● PETALUMA, CA",
+        hero_title: 'Servicios de <span class="text-[#FD3A85] underline decoration-[#FD3A85]/50 decoration-4 underline-offset-8">limpieza</span><br/>residencial y comercial a medida.',
+        hero_subtitle: "Soluciones de limpieza profesional, confiable y 100% ecológica para hogares y negocios en Petaluma y Sonoma County. Seguro para niños, mascotas y el medio ambiente.",
+        hero_cta_quote: "Cotización Gratis",
+        hero_cta_services: "Ver Servicios",
+
+        // About
+        about_eyebrow: "✦ SOBRE BLACK DIAMOND",
+        about_title: '<span class="text-[#FD3A85]">Profesionales de confianza</span> que transforman tus espacios.',
+        about_description: "Creamos ambientes frescos, higiénicos y acogedores que contribuyen a una vida más saludable. Ofrecemos un servicio profesional y ecológico en Petaluma, CA, utilizando productos no tóxicos y garantizando la calidad en cada detalle.",
+        about_stat1_desc: "Hogares y espacios atendidos en Petaluma",
+        about_stat2_desc: "Productos ecológicos y seguros para mascotas",
+        about_stat3_desc: "En tu primer servicio",
+        about_stat4_desc: "De nuestros clientes nos recomiendan",
+
+        // Services
+        services_eyebrow: "✦ NUESTRA EXPERIENCIA",
+        services_title: 'Excelencia en Limpieza <br class="hidden sm:block"/>a <span class="text-[#FD3A85]">tu Medida.</span>',
+        services_subtitle: "Desde residencias familiares hasta instalaciones comerciales, ofrecemos planes especializados de limpieza ecológica diseñados para tus necesidades exactas en Petaluma, CA.",
+        svc_quote_btn: "Cotizar Servicio →",
+        tab_residential: "Limpieza Residencial",
+        tab_commercial: "Comercial y Oficinas",
+        tab_deep: "Limpieza Profunda",
+        tab_move: "Mudanzas (Entrada / Salida)",
+        svc_res_title: "Limpieza Residencial",
+        svc_res_desc: "Cuidado completo de tu hogar, de arriba abajo. Utilizamos productos 100% ecológicos y no tóxicos, seguros para niños, mascotas y el medio ambiente.",
+        svc_res_tag1: "Limpieza de Casas",
+        svc_res_tag2: "Departamentos",
+        svc_res_tag3: "Recurrente & Puntual",
+        svc_res_tag4: "100% Pet-Safe",
+        svc_com_title: "Comercial y Oficinas",
+        svc_com_desc: "Cuidamos cada espacio para crear ambientes saludables, ordenados y agradables. Adaptamos nuestros servicios a las necesidades de oficinas, estudios y comercios locales.",
+        svc_com_tag1: "Oficinas & Estudios",
+        svc_com_tag2: "Locales Comerciales",
+        svc_com_tag3: "Desinfección Botánica",
+        svc_com_tag4: "Horarios Flexibles",
+        svc_deep_title: "Limpieza Profunda",
+        svc_deep_desc: "Una atención detallada para eliminar la suciedad acumulada y devolverle frescura a cada espacio. Ideal para hogares que necesitan una renovación completa.",
+        svc_deep_tag1: "Línea Profunda",
+        svc_deep_tag2: "Detallado de Cocina y Baños",
+        svc_deep_tag3: "Eliminación de Residuos",
+        svc_deep_tag4: "Eco-Sanitización",
+        svc_move_title: "Mudanzas: Entrada / Salida",
+        svc_move_desc: "Un servicio completo y detallado para que puedas cerrar una etapa o comenzar una nueva con un espacio fresco, limpio y listo para disfrutar.",
+        svc_move_tag1: "Entrega de Depósito",
+        svc_move_tag2: "Inmuebles Desocupados",
+        svc_move_tag3: "Gabinetes & Ventanas",
+        svc_move_tag4: "Garantía 100%",
+
+        // Difference
+        diff_eyebrow: "✦ POR QUÉ ELEGIR BLACK DIAMOND",
+        diff_title: 'Calidad profesional, <span class="text-[#FD3A85]">cuidado que se nota.</span>',
+        diff_subtitle: "Combinamos técnicas profesionales de higiene con productos ecológicos para cuidar cada espacio y proteger lo que más importa: tu familia, tus mascotas y el medio ambiente.",
+        diff_c1_title: "Personal Calificado y Asegurado",
+        diff_c1_desc: "Profesionales con antecedentes verificados y rigurosa capacitación que cuidan tu hogar con total discreción.",
+        diff_c2_title: "100% No Tóxico y Seguro",
+        diff_c2_desc: "Formulado con aceites esenciales naturales y enzimas vegetales seguras para bebés y mascotas.",
+        diff_c3_title: "Precios Fijos y Claros",
+        diff_c3_desc: "Tarifas claras por adelantado sin sorpresas ni cobros ocultos. Lo que ves es lo que pagas.",
+        diff_c4_title: "Garantía de Satisfacción 100%",
+        diff_c4_desc: "Si alguna zona no cumple con tus expectativas, avísanos en 24 horas y la limpiaremos de nuevo sin costo adicional.",
+
+        // Process
+        proc_eyebrow: "• NUESTRO PROCESO",
+        proc_title: 'Obtén un espacio limpio<br/>en solo <span class="text-[#FD3A85]">tres pasos.</span>',
+        proc_btn: "Contáctanos",
+        proc_s1_title: "Solicita tu cotización",
+        proc_s1_desc: "Elige el servicio que necesitas, déjanos tus datos y recibe una cotización personalizada y gratuita.",
+        proc_s2_title: "Coordinamos y limpiamos",
+        proc_s2_desc: "Confirmamos la fecha que mejor se adecue a tu horario y nuestro equipo de profesionales acude puntual con insumos 100% ecológicos.",
+        proc_s3_title: "Disfruta un espacio fresco",
+        proc_s3_desc: "Relájate y disfruta de un ambiente impecable, renovado y saludable mientras nosotros hacemos el trabajo pesado.",
+
+        // Reviews
+        rev_badge: "★ Reseñas 5.0 Estrellas en Google y Facebook",
+        rev_title: 'Lo que dicen nuestros clientes <br class="hidden sm:block"/>sobre nuestros <span class="text-[#FD3A85]">servicios de limpieza</span>',
+        rev_subtitle: "Opiniones verificadas de propietarios y negocios en Petaluma y Sonoma County.",
+        rev1_text: "“¡Black Diamond transformó nuestra casa histórica en Petaluma! Con dos golden retrievers y niños pequeños, tener productos 100% no tóxicos era primordial. Superaron cada expectativa.”",
+        rev1_client: "Westside Petaluma • Residencial",
+        rev2_text: "“Contratamos su limpieza profunda de mudanza para nuestro departamento en D Street. El dueño inspeccionó y nos devolvió el depósito completo en horas. El horno y ventanas quedaron como nuevos.”",
+        rev2_client: "Sonoma County • Mudanzas",
+        rev3_text: "“El equipo de Black Diamond limpia nuestro estudio y oficina dos veces por semana. Son sumamente puntuales, profesionales y confiables. Dejan cada espacio impecable y con un aroma fresco y natural.”",
+        rev3_client: "Centro de Petaluma • Comercial",
+        rev4_text: "“El mejor equipo de limpieza en North Bay. Dejaron impecables las molduras del techo y los azulejos. ¡Mi casa quedó impecable y oliendo delicioso!”",
+        rev4_client: "Sonoma Valley • Limpieza Profunda",
+        rev5_text: "“Su servicio recurrente quincenal es una salvación. Calidad constante, comunicación amable y productos ecológicos seguros para nuestro recién nacido y gato.”",
+        rev5_client: "Petaluma, CA • Recurrente Quincenal",
+        rev6_text: "“Máxima atención al detalle. Probamos varios servicios en Petaluma antes de conocer Black Diamond. Su equipo está en otro nivel de profesionalismo.”",
+        rev6_client: "Bodega Ave • Residencial",
+
+        // FAQ
+        faq_eyebrow: "[ ¿TIENES PREGUNTAS? ]",
+        faq_title: "Preguntas frecuentes",
+        faq_subtitle: "Todo lo que necesitas saber sobre nuestros productos ecológicos, horarios y el descuento del 20%.",
+        faq1_q: "¿Sus productos de limpieza son realmente 100% seguros para mascotas y no tóxicos?",
+        faq1_a: "Sí, totalmente. Utilizamos exclusivamente productos biodegradables certificados EPA Safer Choice a base de plantas, sin amoníaco, cloro ni derivados de petróleo. Son 100% seguros para mascotas, bebés y personas con sensibilidades respiratorias.",
+        faq2_q: "¿Cómo funciona el descuento del 20% en la primera limpieza?",
+        faq2_a: "El 20% de descuento se aplica automáticamente al reservar tu primer servicio mediante nuestro formulario o al mencionarlo llamando al (707) 318-4321.",
+        faq3_q: "¿Necesito estar en casa durante la limpieza?",
+        faq3_a: "¡Para nada! Muchos clientes nos dejan un código de caja de seguridad o llave con la administración. Nuestro personal está asegurado y verifica que todo quede cerrado con llave al terminar.",
+        faq4_q: "¿Qué áreas de Sonoma County atienden?",
+        faq4_a: "Tenemos base en Petaluma, CA, y atendemos a Cotati, Rohnert Park, Penngrove, Santa Rosa, Sonoma Valley y Novato.",
+
+        // CTA Banner
+        cta_badge: "✦ Disponibilidad Limitada Este Mes",
+        cta_title: "¿Listo para un hogar impecable y libre de toxinas?",
+        cta_subtitle: "Reclama tu 20% de descuento hoy. Programación rápida, fácil y sin complicaciones para tu hogar o negocio en Petaluma.",
+        cta_btn: "Reservar con 20% OFF",
+        cta_hours: "Lun - Sáb: 7:00 AM - 7:00 PM",
+
+        // Contact 2-Col Section
+        contact_ribbon: "-20% DTO. Primer Servicio",
+        contact_title: "¡Solicita Tu Cotización Gratis!",
+        contact_subtitle: "Completa el formulario y recibe tu estimado personalizado con 20% de descuento.",
+        contact_fname: "Nombre",
+        contact_fname_ph: "ej. Eleanor",
+        contact_lname: "Apellido",
+        contact_lname_ph: "ej. Vance",
+        contact_phone: "Número de Contacto",
+        contact_phone_ph: "(707) 318-4321",
+        contact_service: "Seleccionar Servicio",
+        contact_msg: "Mensaje / Notas",
+        contact_msg_ph: "Cuéntanos sobre el tamaño de tu propiedad, áreas prioritarias o fechas...",
+        contact_submit: "Reclamar 20% DTO. y Cotizar",
+        contact_success_title: "¡Solicitud de Cotización Enviada!",
+        contact_success_desc: "¡Gracias! Nos pondremos en contacto en menos de 2 horas con tu cotización y 20% de descuento confirmado.",
+        contact_reset: "Enviar Otra Solicitud",
+        contact_guarantee_title: "¡Garantía de Satisfacción 100%!",
+        contact_guarantee_sub: "Resultados confiables gracias al uso de productos no tóxicos.",
+
+        // Footer
+        footer_tagline: "El servicio líder de limpieza residencial y comercial en Petaluma y Sonoma County. Productos botánicos 100% biodegradables, personal asegurado y un compromiso total con la salud.",
+        footer_services: "Servicios",
+        footer_company: "Compañía",
+        footer_contact: "Contacto",
+        footer_rights: "© 2026 Black Diamond Cleaning Services. Todos los derechos reservados. Petaluma, CA.",
+        footer_badge1: "🌿 Certificado 100% Ecológico",
+        footer_badge2: "🔒 Licenciado y Asegurado",
+        footer_hours: "Lun-Sáb: 7am - 7pm",
+
+        // Modal
+        modal_promo: "✦ 20% Promoción Aplicada",
+        modal_title: "Solicita tu Cotización Gratis",
+        modal_selected: "Servicio Seleccionado:",
+        modal_name: "Nombre Completo",
+        modal_name_ph: "ej. Eleanor Vance",
+        modal_phone: "Número Telefónico",
+        modal_email: "Correo Electrónico",
+        modal_date: "Fecha Preferida",
+        modal_window: "Horario de Llegada",
+        modal_morning: "Mañana (8:00 AM - 11:00 AM)",
+        modal_midday: "Mediodía (11:00 AM - 2:00 PM)",
+        modal_afternoon: "Tarde (2:00 PM - 5:00 PM)",
+        modal_address: "Dirección de la Propiedad (Petaluma / Sonoma County)",
+        modal_address_ph: "ej. 124 Bodega Ave, Petaluma, CA",
+        modal_submit: "Obtener Cotización (20% OFF)",
+        modal_note: "Respuesta garantizada en menos de 2 horas • Línea directa: (707) 318-4321",
+        modal_success_title: "¡Solicitud de Cotización Recibida!",
+        modal_success_desc1: "Gracias ",
+        modal_success_desc2: ". Un especialista del equipo confirmará tu cotización y horario al ",
+        modal_lbl_service: "Servicio:",
+        modal_lbl_date: "Fecha:",
+        modal_lbl_location: "Ubicación:",
+        modal_done: "Listo"
+      }
+    };
+
+    function cleaningApp() {
+      return {
+        lang: localStorage.getItem('bd_lang') || 'en',
+        mobileMenuOpen: false,
+        activeTab: 'residential',
+        discountApplied: true,
+        
+        // Contact Section 2-Column Form states
+        contactFname: '',
+        contactLname: '',
+        contactPhone: '',
+        contactService: 'residential',
+        contactMsg: '',
+        contactSuccess: false,
+
+        submitContactForm() {
+          this.contactSuccess = true;
+          this.$nextTick(() => {
+            if (window.lucide) {
+              window.lucide.createIcons();
+            }
+          });
+        },
+
+        setLang(newLang) {
+          this.lang = newLang;
+          localStorage.setItem('bd_lang', newLang);
+          this.$nextTick(() => {
+            if (window.lucide) {
+              window.lucide.createIcons();
+            }
+          });
+        },
+
+        t(key) {
+          if (translations[this.lang] && translations[this.lang][key]) {
+            return translations[this.lang][key];
+          }
+          if (translations['en'] && translations['en'][key]) {
+            return translations['en'][key];
+          }
+          return key;
+        },
+
+        init() {
+          // Initialize Lucide icons on page load
+          this.$nextTick(() => {
+            if (window.lucide) {
+              window.lucide.createIcons();
+            }
+          });
+        }
+      };
+    }
+
+    // Refresh Lucide icons & initialize GSAP ScrollTrigger when DOM changes
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      // Initialize GSAP ScrollTrigger for 3-Step Process section
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Media Matcher so this delightful staggered glide runs on desktop/tablet (md and up)
+        const mm = gsap.matchMedia();
+
+        mm.add("(min-width: 768px)", () => {
+          // Card 01 starts at 0 (top-aligned)
+          gsap.set(".step-card-1", { y: 0 });
+
+          // Card 02 starts pushed down by 48px (translate-y-12)
+          gsap.fromTo(".step-card-2", 
+            { y: 48 }, 
+            {
+              y: 0,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#process",
+                start: "top 70%",
+                end: "top 25%",
+                scrub: 1,
+              }
+            }
+          );
+
+          // Card 03 starts pushed down by 96px (translate-y-24)
+          gsap.fromTo(".step-card-3", 
+            { y: 96 }, 
+            {
+              y: 0,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#process",
+                start: "top 70%",
+                end: "top 25%",
+                scrub: 1,
+              }
+            }
+          );
+        });
+
+        // On mobile screens (<768px), keep normal stacked natural positioning
+        mm.add("(max-width: 767px)", () => {
+          gsap.set([".step-card-1", ".step-card-2", ".step-card-3"], { y: 0 });
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
